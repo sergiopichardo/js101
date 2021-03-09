@@ -12,11 +12,19 @@ function createMessage(actual, expected, message) {
   }
 }
 
+/**
+ * Compares two primitive values and returns true if equal
+ * @param {number|string|boolean|null|undefined} actual
+ * @param {number|string|boolean|null|undefined} expected
+ * @return {boolean} - true or false
+ */
 function assertEqual(actual, expected, message) {
   let isEqual = (actual === expected)
   let testMessage = createMessage(actual, expected, message)
   console.log(isEqual ? testMessage.passed : testMessage.failed);
 }
+
+
 
 module.exports = {
   assertEqual
