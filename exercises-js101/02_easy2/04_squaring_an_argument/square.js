@@ -84,7 +84,9 @@ function power(base, exponent) {
   }
 
   let result = 1
-  for (let i = 0; i < exponent; i++) {
+  let absExponent = Math.abs(exponent)
+  console.log(absExponent)
+  for (let i = 0; i < absExponent; i++) {
     result = multiply(base, result)
   }
 
@@ -108,6 +110,10 @@ assertEqual(power(5, 3), 125, "Should return 125 when 5 is raised to the power o
 assertEqual(power(2, 5), 32, "Should return 32 when 2 is raised to the power of 5.")
 assertEqual(power(2, 1), 2, "Should return 2 when 2 is raised to the power of 1.")
 assertEqual(power(2, -1), 0.5, "Should return 0.5 when 2 is raised to the power of -1.")
+assertEqual(power(4, -1), 0.25, "Should return 0.25 when 4 is raised to the power of -1.")
+
+assertEqual(power(12, -4), 0.000048225308641975306, "Should return 0.000048225308641975306 when 12 is raised to the power of -4.")
+assertEqual(power(4, -4), 0.00390625, "Should return 0.00390625 when 4 is raised to the power of -4.")
 
 
 
