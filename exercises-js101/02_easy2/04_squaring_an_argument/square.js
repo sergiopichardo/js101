@@ -33,20 +33,6 @@ function square(number) {
   return multiply(number, number)
 }
 
-// Square Functions Tests
-// assertEqual(square(5), 25, "Should return 25 given 5")
-// assertEqual(square(-8), 64, "Should return 64 given -8")
-
-
-/**
- * CONTINUE HERE
- *  TODOS:
- *    - How to deal with exponent 1
- *    - How to deal with exponent 0
- *    - How to deal with negative exponents
- *    - Add a detailed analysis and mental model
- *    - follow PEDAC system
- */
 
 /**
  * Exponentiation
