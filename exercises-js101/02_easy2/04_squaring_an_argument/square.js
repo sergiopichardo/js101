@@ -84,9 +84,7 @@ function power(base, exponent) {
   }
 
   let result = 1
-  let absExponent = Math.abs(exponent)
-  console.log(absExponent)
-  for (let i = 0; i < absExponent; i++) {
+  for (let i = 0; i < Math.abs(exponent); i++) {
     result = multiply(base, result)
   }
 
