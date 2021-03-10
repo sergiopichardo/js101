@@ -31,8 +31,9 @@ function getSixNumbers() {
  * @param {number[]}
  * @return {boolean}
  */
-function isSixthNumberIncluded(targetNumber, numbers) {
-  return numbers.includes(targetNumber)
+function isSixthNumberIncluded(numbers) {
+  let sixthNumber = numbers.pop()
+  return numbers.includes(sixthNumber)
 }
 
 
@@ -67,7 +68,7 @@ function displayMessage(message) {
 
 // Main program
 const [sixthNumber, numbers] = getSixNumbers()
-const isNumberIncluded = isSixthNumberIncluded(sixthNumber, numbers)
+const isNumberIncluded = isSixthNumberIncluded(numbers)
 const message = constructMessage(isNumberIncluded, sixthNumber, numbers);
 displayMessage(message)
 
