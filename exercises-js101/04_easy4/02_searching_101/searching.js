@@ -7,10 +7,8 @@ sixth number appears amongst the first five numbers.
 
 /**
  * Get 6 numbers from the user
- * @param {number}
  * @return {number[]} - 1, 2, 3, 4, 5
  */
-
 
 /**
  * Checks if 6th number is within the first 5 numbers
