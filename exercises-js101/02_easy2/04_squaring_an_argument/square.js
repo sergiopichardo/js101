@@ -81,6 +81,7 @@ function power(base, exponent) {
   }
 }
 
+
 // Test cases
 assertEqual(power(8, 0), 1, "Should return 1 when 8 is raised to the power of 0.")
 assertEqual(power(0, 0), 1, "Should return 1 when 0 is raised to the power of 0")
