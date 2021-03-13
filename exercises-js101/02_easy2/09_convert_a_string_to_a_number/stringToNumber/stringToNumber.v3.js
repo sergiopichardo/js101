@@ -4,7 +4,7 @@
  * @return {number}
  */
 function stringToInteger(numericString) {
-  let reversedNumericString = [...numericString].split('').reverse();
+  let reversedNumericString = [...numericString].reverse();
   let result = 0;
 
   for (let idx = 0; idx < reversedNumericString.length; idx += 1) {
