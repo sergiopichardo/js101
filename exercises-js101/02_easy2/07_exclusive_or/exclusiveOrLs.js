@@ -1,5 +1,5 @@
 /*
-
+Launch School Solution
 */
 function xor(value1, value2) {
   return !!((value1 && !value2) || (value2 && !value1));
