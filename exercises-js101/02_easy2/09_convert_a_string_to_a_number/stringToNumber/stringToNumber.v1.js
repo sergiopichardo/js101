@@ -9,7 +9,7 @@ Date: March 13, 2021
  * @param {string} numericString
  * @return {number}
  */
-const stringToInteger = numericString => +(numericString)
+const stringToInteger = numericString => +(numericString);
 
 
 console.log(stringToInteger("4321") === 4321); // logs true
