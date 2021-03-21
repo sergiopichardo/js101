@@ -1,169 +1,107 @@
-# < Exercise Title >
-< Exercise Body >
+# Halvesies
+Write a function that takes an array as an argument, and
+returns an array that contains two elements, each of which
+is an array.
+
+Put the first half of the original array
+elements in the first element of the return value, and put
+the second half in the second element.
+If the original array contains an odd number of elements, place the middle element in the first half array.
 
 
 ## 1. Problem
-Short description of what we are trying to accomplish.
+Given a collection of elements. Split the collection into two halves based on the length of the collection.
 
 ### Input/s
-1.
-2.
-3.
+1. Array of elements
 
 ### Output/s
-1.
-2.
-3.
+1. 2D array with two elements
 
 ### Rules/Requirements
 #### Explicit
-1.
-2.
-3.
+1. Write a function that takes an array as an argument
+2. The fuction must return a nested array containing two arrays
+   - e.g. [[1, 2], [3, 4]]
+3. Put the first half of the array in the first element, and
+   the second half of the array in the second element.
+4. If the array contains an odd number of elements,
+   place the middle element in the first half array.
 
 #### Implicit
-1.
-2.
-3.
-
-### Edge Cases
-- e.g. of edge case: display number from 1 - *n* (Do we include or exclude *n*?)
-- Related topic: test cases handle "Edge Cases"
-
-### Constraints
-- What is the max number this program can handle?
-- e.g. 1 to Infinity? or 1 - 10 billion?
-
-### Clarify questions
-1.
-2.
-3.
-
-
-### Problem Domain
-- What formulas do I need to learn about?
-e.g. Array iteration, Accounting, factorization, linear algebra, etc.
-
-#### Definitions
--
-
-#### Formulas
--
-
-
-
-### Diagram (Optional)
-- Helps you understand the problem.
-![diagram example](blockchain-diagram.jpg "diagram example")
-
-
-### Mental Model
-**Example:**
-Determine a list of all multiples of a set of factors up to a target value, then filter the list of multiples to the unique values. Finally, compute and return the sum of the unique multiples.
-
+1. The array can contain any data type.
+   e.g. number, string, boolean, nulll, undefined, array, or object.
+2. If the input array is empty return an empty 2D array
 
 
 
 ## 2. Examples/Test Cases
-- Validate Understanding of the Problem.
-- e.g. If the input is an empty array what do we return?
-- e.g. If the input is 0 what do we return?
-- e.g. Should we account for negative numbers?
+```
+[1, 2, 3, 4]     --->  [[1, 2], [3, 4]]
+[1, 5, 2, 4, 3]  --->  [[1, 5, 2], [4, 3]]
+[5]              --->  [[5], []]
+[]               --->  [[], []]
+```
 
-e.g. Given an array of numbers, return only the even number
-     A: [1, 2, 3, 4, 5, 6] -> [2, 4, 6]
+### Problem Domain
+- 2D Arrays (nested arrays)
+- Computing middle index
+- Array slicing
 
+### Mental Model
+
+Given a collection of elements. Divide the collection in half and
+place each half of the collection into its own separate array.
+
+If the collection contains an odd amount of elements, capture the
+element at the middle index and append into the first half array.
+
+If the amount of elements in the collection is even, just divide
+the collection in half (no need to find middle index element).
+If the given collection of elements is empty, return an empty 2D
+array. Finally, return the result as a 2D array of elements.
 
 ---
 ## 3. Data Structure
-- Data structures are the way we store and retrieve data
-- How we'll represent data that we'll work with when converting the input to output
-- An `array` or an `object`?
-- A `string`? Can we solve this problem using `string concatenation`?
-- A `number`?
-  - Can we solve this problem using a running `total`?
-  - Do we need to `convert it` into a different `number`?
-- Do we need to convert the input into a different data type?
----
-
-#### Potential Data Structures
-- Potential Data Structure 1
-- Potential Data Structure 2
-- Potential Data Structure 3
-- Potential Data Structure 4
-...
-- Potential Data Structure n
-
-
-#### Selected Data Structure
--
+- Nested array of elements (2D array)
 
 ---
 ## 4. Algorithm
-The steps that will be needed to solve the problem
-- Are we mutating the original array or object?
-- Helper functions?
+#### Pseudocode
 
-#### Flowchart (Optional)
-- Shows you the flow of the program.
-<!-- ![Flowchart example](flowchart-example.png "flowchart example") -->
-![Flowchart example](flowchart-symbols.png "flowchart symbols")
-
-
-#### Potential Algorithms
-- Potential Algorithm 1
-- Potential Algorithm 2
-- Potential Algorithm 3
-- Potential Algorithm 4
-...
-- Potential Algorithm n
-
-##### Helper functions
-- Do I need any helper functions/subprocesses?
-
-
-#### pseudocode
 ```js
-1. Create an empty array called `multiples` that will contain the list of multiples
-2. Check whether the list of factors is empty. If there are no factors, set the list to `[3, 5]`
-3. For every `factor` in the `factors` list:
-    1. Set the `current_multiple` to `factor` to keep track of the multiples of `factor`.
-    2. While `current_multiple` < `target`
-        1. Is the `current_multiple` in `multiples` already?
-            1. Yes - do nothing
-            2. No - Append the `current_multiple` to `multiples`.
-        2. Add `factor` to `current_multiple`.
-4. Compute and return the sum of the numbers in `multiples`.
+1. Create a function called `halvesies()` with a single parameter called `collection`.
+2. If the input is empty return an 2D array
+3. Create a variable called `middleIndex` that will be used to store the value computed by calling
+    a helper function that calculates the array's required indexes for 1st and 2nd halves
+    depending whether the collection is even or odd.
+4. Slice the collection array from the first index to middle and store in a variable called `firstHalf`
+5. Slice the collection array from the middle index until the end of the array and store in a variable called `secondHalf`
+6. Return a 2D array that contains `firstHalf` and `secondHalf` arrays.
 ```
 
 #### Formal pseudocode
 ```js
-START
+// Given a collection of elements called "collection"
 
-# Given a collection of integers called "numbers"
+FUNCTION halvesies(collection)
+  IF collection is empty RETURN [[], []]
 
-SET iterator = 1
-SET savedNumber = value within numbers collection at space 1
+  SET middleIndex = SUBPROCESS "Compute middle index"
 
-WHILE iterator <= length of numbers
-  SET currentNumber = value within numbers collection at space "iterator"
-  IF currentNumber > savedNumber
-    savedNumber = currentNumber
-  ELSE
-    skip to the next iteration
+  SET firstPart = SUBPROCESS "Slice array from 0 - middle index"
+  SET secondPart = SUBPROCESS "Slice array from middleIndex to end"
 
-  iterator = iterator + 1
-
-PRINT savedNumber
-
-END
+  RETURN [firstPart, secondPart]
+ENDFUNCTION
 ```
 
+#### Helper functions
+- `computeMiddleIndex`: A function to compute middle index based on collection being even or odd
 
 ---
 ## 5. Code
 - Implement the algorithm with code
-
 
 
 #### Refactor
