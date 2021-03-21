@@ -9,12 +9,12 @@ Author: Sergio Pichardo
 /**
  * Combine two arrays, and return a
  * new array alternating the values
- * from each input array
+ * from each input array.
  * @param {Array.<*>} listA - an array with values (same size)
  * @param {Array.<*>} listB - an array with values (same size)
  * @return {Array.<*>} - array with alternating values
  */
- function interleave(listA, listB) {
+function interleave(listA, listB) {
   return listA.reduce((accum, _, idx) => {
       return accum.concat(listA[idx], listB[idx]);
   }, [])
