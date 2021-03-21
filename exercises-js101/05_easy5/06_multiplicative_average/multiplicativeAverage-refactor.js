@@ -10,7 +10,7 @@ title: Multiplicative Average
  * @return {string}
  */
  function multiplicativeAverage(integers) {
-  let product = integers.reduce((acc, el, _) => acc *= el, 1)
+  let product = integers.reduce((acc, el, _) => acc * el, 1)
   return (product / integers.length).toFixed(3)
 }
 
