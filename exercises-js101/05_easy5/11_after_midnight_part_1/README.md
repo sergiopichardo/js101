@@ -1,8 +1,8 @@
 # After Midnight (part 1)
 The time of day can be represented as the number of minutes
-before or after midnight. If the number of minutes is positive,
-the time is after midnight.
-If the number of minutes is negative, the time is before midnight.
+before or after midnight. If the number of minutes is `positive`,
+the time is `after midnight`.
+If the number of minutes is `negative`, the time is `before midnight`.
 
 Write a function that takes a time using this minute-based format
 and returns the time of day in 24 hour format (hh:mm).
@@ -19,10 +19,10 @@ Disregard Daylight Savings and Standard Time and other complications.
 Short description of what we are trying to accomplish.
 
 ### Input/s
-1. `minutes`: positive or negative integer
+1. positive or negative integer
 
 ### Output/s
-1. `hh:mm`: Formatted time string
+1. Formatted time string
 
 ### Rules/Requirements
 #### Explicit
@@ -37,17 +37,15 @@ Short description of what we are trying to accomplish.
 9. Ignore Daylight Savings and Standard time and other complications
 
 #### Implicit
-1. calculate minutes to hours
-2. minutes in 24 hours:
+1. Must calculate minutes to hours to get `hh` portion of result
+2. Must calculate hours to minutes
 3.
 
 ### Edge Cases
 - e.g. of edge case: display number from 1 - *n* (Do we include or exclude *n*?)
-- Related topic: test cases handle "Edge Cases"
+- When input is 0, return "00:00"
 
 ### Constraints
-- What is the max number this program can handle?
-- e.g. 1 to Infinity? or 1 - 10 billion?
 
 ### Clarify questions
 1.
@@ -56,100 +54,59 @@ Short description of what we are trying to accomplish.
 
 
 ### Problem Domain
-- What formulas do I need to learn about?
-e.g. Array iteration, Accounting, factorization, linear algebra, etc.
+- Time conversion
 
 #### Definitions
 -
 
 #### Formulas
 - 1 hour   = 60 minutes
+- 1 minute = 60 seconds
 - 1 day    = 24 hours
 - 24 hours = 1440 minutes
 
-
-### Diagram (Optional)
-- Helps you understand the problem.
-![diagram example](blockchain-diagram.jpg "diagram example")
-
-
 ### Mental Model
-**Example:**
-Determine a list of all multiples of a set of factors up to a target value, then filter the list of multiples to the unique values. Finally, compute and return the sum of the unique multiples.
-
+Given a positive or negative integer. Determine whether the time is before or after midnight. Convert the input to a valid hour and a valid minute. Finally, return a string in the format (hh:mm).
 
 
 
 ## 2. Examples/Test Cases
-- Validate Understanding of the Problem.
-- e.g. If the input is an empty array what do we return?
-- e.g. If the input is 0 what do we return?
-- e.g. Should we account for negative numbers?
-
-e.g. Given an array of numbers, return only the even number
-     A: [1, 2, 3, 4, 5, 6] -> [2, 4, 6]
+0      ----->    "00:00"       00:00 a.m. -> 12:00 a.m.
+1      ----->    "00:01"       00:01 a.m. -> 12:10 a.m.
+-1     ----->    "23:59"       23:59 p.m.
+-3     ----->    "23:57"       23:57 p.m.
+35     ----->    "00:35"       00:35 a.m.
+-1437  ----->    "00:03"       00:03 a.m.
+3000   ----->    "02:00"       02:00 a.m.
+800    ----->    "13:20"       13:20 p.m.
+-4231  ----->    "01:29"       01:29 a.m.
 
 
 ---
 ## 3. Data Structure
-- Data structures are the way we store and retrieve data
-- How we'll represent data that we'll work with when converting the input to output
-- An `array` or an `object`?
-- A `string`? Can we solve this problem using `string concatenation`?
-- A `number`?
-  - Can we solve this problem using a running `total`?
-  - Do we need to `convert it` into a different `number`?
-- Do we need to convert the input into a different data type?
----
-
-#### Potential Data Structures
-- Potential Data Structure 1
-- Potential Data Structure 2
-- Potential Data Structure 3
-- Potential Data Structure 4
-...
-- Potential Data Structure n
-
-
-#### Selected Data Structure
--
+- string
 
 ---
 ## 4. Algorithm
-The steps that will be needed to solve the problem
-- Are we mutating the original array or object?
-- Helper functions?
-
-#### Flowchart (Optional)
-- Shows you the flow of the program.
-<!-- ![Flowchart example](flowchart-example.png "flowchart example") -->
-![Flowchart example](flowchart-symbols.png "flowchart symbols")
-
-
-#### Potential Algorithms
-- Potential Algorithm 1
-- Potential Algorithm 2
-- Potential Algorithm 3
-- Potential Algorithm 4
-...
-- Potential Algorithm n
-
 ##### Helper functions
-- Do I need any helper functions/subprocesses?
+- `calculateHours`
+- `calculateMinutes`
 
 
 #### pseudocode
 ```js
-1. Create an empty array called `multiples` that will contain the list of multiples
-2. Check whether the list of factors is empty. If there are no factors, set the list to `[3, 5]`
-3. For every `factor` in the `factors` list:
-    1. Set the `current_multiple` to `factor` to keep track of the multiples of `factor`.
-    2. While `current_multiple` < `target`
-        1. Is the `current_multiple` in `multiples` already?
-            1. Yes - do nothing
-            2. No - Append the `current_multiple` to `multiples`.
-        2. Add `factor` to `current_multiple`.
-4. Compute and return the sum of the numbers in `multiples`.
+Given an integer representing a time in minutes
+
+1. Declare a func called `timeOfDay` with a parameter of `minutes`
+```
+```
+input
+-4231
+
+Math.abs(4231 / 60)
+70.51666666666667
+
+
 ```
 
 #### Formal pseudocode
