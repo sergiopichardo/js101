@@ -85,65 +85,13 @@ Give a string with consecutive duplicate characters. Iterate over the string, as
    - return an empty string
 3. Create a variable called `collapsedSequence` and set to an empty string
 4. Create a variable called `index` and set to zero
-5. while the character at current index is same as the next one
-   (a) add the current character to `collapsedSequence`
-   (b) increment the `index` variable by one
+5. while the character at current index is not undefined
+      if the current character is not equal to the next character
+          (a) add the current character to `collapsedSequence`
+      (a) increment the `index` variable by one
 6. return the `collapsedSequence` variable
 ```
-
-
-
-```js
-1. Create an empty array called `multiples` that will contain the list of multiples
-2. Check whether the list of factors is empty. If there are no factors, set the list to `[3, 5]`
-3. For every `factor` in the `factors` list:
-    1. Set the `current_multiple` to `factor` to keep track of the multiples of `factor`.
-    2. While `current_multiple` < `target`
-        1. Is the `current_multiple` in `multiples` already?
-            1. Yes - do nothing
-            2. No - Append the `current_multiple` to `multiples`.
-        2. Add `factor` to `current_multiple`.
-4. Compute and return the sum of the numbers in `multiples`.
-```
-
-#### Formal pseudocode
-```js
-START
-
-# Given a collection of integers called "numbers"
-
-SET iterator = 1
-SET savedNumber = value within numbers collection at space 1
-
-WHILE iterator <= length of numbers
-  SET currentNumber = value within numbers collection at space "iterator"
-  IF currentNumber > savedNumber
-    savedNumber = currentNumber
-  ELSE
-    skip to the next iteration
-
-  iterator = iterator + 1
-
-PRINT savedNumber
-
-END
-```
-
 
 ---
 ## 5. Code
 - Implement the algorithm with code
-
-
-
-#### Refactor
-- Can we make the code more concise and still readable?
-- Do we need to change some variable or function names?
-- Should we divide functionality into other functions?
-- Are we mutating the state?
-
-
-#### Further Exploration
-- What are other ways we can solve this problem?
-
-
